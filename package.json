@@ -1,0 +1,20 @@
+{
+  "name": "express-auth0-man-token",
+  "version": "1.0.0",
+  "description": "express-auth0 manager-token middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "coffee index.coffee"
+  },
+  "keywords": [
+    "auth0",
+    "express",
+    "api"
+  ],
+  "author": "dynnamitt",
+  "license": "ISC",
+  "dependencies": {
+    "node-cache": "^4.1.1",
+    "request": "^2.83.0"
+  }
+}
