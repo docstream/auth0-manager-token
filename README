@@ -1,0 +1,15 @@
+NodeJS Express middleware caching and requesting TOKEN for Auth0 Management API. 
+
+[req.auth0.token] contains valid token in downstream handlers/mw
+
+
+ENVs; 
+
+- AUTH0_CONFIG for testing . Querystring. Also avail in [req.auth0]
+
+    domain=xxxx.eu.auth0.com&clientID=id101&clientSecret=verrysecret
+
+
+Normal op requires a JSON in header X-DS-AUTH0 (settings in API-gateway). UriEncoded JSON.
+
+    { .domain , .clientID, .clientSecret}

@@ -4,6 +4,7 @@
   "description": "express-auth0 manager-token middleware",
   "main": "index.js",
   "scripts": {
+    "postinstall": "node_modules/.bin/coffee --bare --compile --output lib/ src/",
     "test": "coffee index.coffee"
   },
   "keywords": [
@@ -16,5 +17,8 @@
   "dependencies": {
     "node-cache": "^4.1.1",
     "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.7"
   }
 }
