@@ -2,4 +2,4 @@ NodeJS func caching and requesting TOKEN for Auth0 Management API.
 
 exports =
 
-    (domain, config={ clientID:id , clientSecret:s, domain:d }, cb) ->
+    (host="example.com", config={ clientID:id , clientSecret:s, domain:d }, cb) ->
