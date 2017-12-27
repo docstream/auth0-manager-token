@@ -1,7 +1,7 @@
 {
-  "name": "express-auth0-man-token",
+  "name": "auth0-man-token",
   "version": "1.0.0",
-  "description": "express-auth0 manager-token middleware",
+  "description": "auth0 manager-token cacher",
   "main": "index.js",
   "scripts": {
     "postinstall": "node_modules/.bin/coffee --bare --compile --output lib/ src/",
