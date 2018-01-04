@@ -4,7 +4,7 @@
   "description": "auth0 manager-token cacher",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node_modules/.bin/coffee --bare --compile --output lib/ src/",
+    "postinstall": "node_modules/.bin/coffee --bare --compile index.coffee",
     "test": "coffee index.coffee"
   },
   "keywords": [
