@@ -2,4 +2,14 @@ NodeJS func caching and requesting TOKEN for Auth0 Management API.
 
 exports =
 
-    (host="example.com", config={ clientID:id , clientSecret:s, domain:d }, cb) ->
+    (clientID , clientSecret, domain, cb) ->
+
+
+# ---------
+
+amt = require 'auth0-manager-token'
+amt 'myId..', 'long-secret..', 'my-name.eu.auth0.com', (err,token) ->
+	authzHeader = token
+	...
+
+# -----------

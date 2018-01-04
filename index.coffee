@@ -7,11 +7,8 @@ AUTH0_TOKEN_TIMEOUT_SEC= 23 * 60 * 60 # hours * min * sec
 
 nodeCache = new NodeCache {stdTTL: AUTH0_TOKEN_TIMEOUT_SEC , checkperiod: 120}
 
-downloadToken = (config, cb) ->
+downloadToken = (clientID , clientSecret, domain, cb) ->
   token_endpoint = '/oauth/token'
-  domain = config.domain
-  clientID = config.clientID
-  clientSecret = config.clientSecret
 
   console.log "auth0.clientID == #{clientID}"
 
@@ -36,28 +33,26 @@ downloadToken = (config, cb) ->
       cb null, body
 
 
-# host = unique-key-comp
-# auth0Conf = { .clientID , .clientSecret, .domain }
 # cb = ( err, httpTOKEN ) ->        
-module.exports = (host, auth0Conf, cb) ->
+module.exports = (clientID , clientSecret, domain, cb) ->
 
-  key = "auth0-token-#{host}"
+  key = "auth0-token-#{domain}"
   
   console.log "--> AUTH0-Token cache-checking, key:", key
 
   # guard 1
-  unless auth0Conf.clientID
-    cb (new Error "!! .clientID unset!!")
+  unless clientID
+    cb (new Error "!! clientID unset!!")
     return
 
   # guard 2
-  unless auth0Conf.clientSecret
-    cb (new Error "!! .clientSecret unset!!")
+  unless clientSecret
+    cb (new Error "!! clientSecret unset!!")
     return
 
   # guard 3
-  unless auth0Conf.domain
-    cb (new Error "!! .domain unset!!")
+  unless domain
+    cb (new Error "!! domain unset!!")
     return
 
 
@@ -70,7 +65,7 @@ module.exports = (host, auth0Conf, cb) ->
 
     console.log " \\ NO valid oauth TOKEN in cache !"
 
-    downloadToken auth0Conf, (err, response) ->
+    downloadToken clientID , clientSecret, domain, (err, response) ->
       if err 
         cb err
       else 
